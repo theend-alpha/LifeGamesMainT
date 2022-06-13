@@ -30,7 +30,7 @@
     "BOT_TOKEN": {
       "description": "Obtain a Telegram bot token by contacting @BotFather",
       "required": true,
-      "value": ""
+      "value": "5168331738:AAHWgFLUU5KXTFl6RRr2xY7iY2pUF_IpHhY"
     }
   }
 }
