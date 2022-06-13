@@ -1,0 +1,5 @@
+build:
+  docker:
+    YashuAlpha: Dockerfile
+run:
+  YashuAlpha: python3 -m LGMT
