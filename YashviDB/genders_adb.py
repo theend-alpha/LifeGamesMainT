@@ -1,11 +1,8 @@
 from sqlalchemy import Column
-from HANY.AlphaDB import BASE, SESSION
+from YashviDB import BASE, SESSION
 from sqlalchemy.sql.sqltypes import BigInteger
 import threading
 
-MALES = []
-
-FEMALES = []
 
 class Males(BASE):
     __tablename__ = "males"
@@ -45,20 +42,18 @@ def add_female(i_id):
         SESSION.commit()
 
 def id_is_male(i_id):
-    global MALES
     male = SESSION.query(Males).get(i_id)
     if male:
-        MALES.append(i_id)
+        return True
     else:
-        return
+        return False
 
 def id_is_female(i_id):
-    global FEMALES
     female = SESSION.query(Females).get(i_id)
     if female:
-        FEMALES.append(i_id)
+        return True
     else:
-        return 
+        return False
 
 def get_males():
     try:
