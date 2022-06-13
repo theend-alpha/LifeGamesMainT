@@ -60,11 +60,13 @@ def get_males():
         return SESSION.query(Males).count()
     finally:
         SESSION.close()
+
 def get_females():
     try:
         return SESSION.query(Females).count()
     finally:
         SESSION.close()
+
 def rmv_male(i_id):
     with MALE_IL:
         is_male = SESSION.query(Males).get(i_id)
