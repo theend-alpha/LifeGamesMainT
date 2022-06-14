@@ -27,10 +27,6 @@ async def csn(event):
         if not hehe.isnumeric():
             await event.reply("Try: /cousin <user_id> or reply to an user")
         f_id = hehe
-    i_name = get_display_name(i_id)
-    f_name = get_display_name(f_id)  
-    i_mention = mentionuser(i_name, i_id)
-    f_mention = mentionuser(f_name, f_id)
     if not hehe.isnumeric():
         return
     elif are_cousins(i_id, f_id) is False:
@@ -65,25 +61,12 @@ async def csnr(event):
         await event.edit("rejected ! Sed xD")
     else:
         await event.answer("this is not for you", cache_time=0, alert=True)
-
-@ALF.on(events.NewMessage(incoming=True, pattern="/leavecousin"))
-async def leave(event):
-    if_id = event.sender_id
-    if event.reply_to_msg_id is not None:
-        msg = await event.get_reply_message()
-        fi_id = msg.sender_id
-    elif hehe is not None:
-        if not hehe.isnumeric():
-            await event.reply("Try: /cousin <user_id> ")
-        fi_id = hehe
-    i_name = get_display_name(if_id)
-    f_name = get_display_name(fi_id)  
-    if_mention = mentionuser(i_name, if_id)
-    fi_mention = mentionuser(f_name, fi_id)
-    if are_cousins(if_id, fi_id) is True:
-        rmv_cousin(if_id, fi_id)
-        rmv_cousin(fi_id, if_id)
-        await event.client.send_message(event.chat.id, f"{if_mention} abandoned {fi_mention} as their cousin..")
-    else:
-        await event.reply("you people are not cousins")
     
+@Yashu.on_message(filters.command(["cousin", "cousin@nothehe_bot"]) & ~filters.edited & filters.group & ~filters.via_bot)
+async def ofmn(_, m: YashuBaby):
+    global i_mention
+    global f_mention
+    init_id = m.from_user.id
+    final_id = m.reply_to_message.from_user.id
+    i_mention = m.from_user.mention
+    f_mention = (await _.get_users(final_id)).mention
