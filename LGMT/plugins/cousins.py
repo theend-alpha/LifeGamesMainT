@@ -11,7 +11,7 @@ f_id = None
 i_mention = None
 f_mention = None
 
-@ALF.on(events.NewMessage(incoming="True", pattern=["/cousin", "/cousin@nothehe_bot"]))
+@ALF.on(events.NewMessage(incoming="True", pattern="/cousin"))
 async def csn(event):
     global f_id
     global i_mention
@@ -62,7 +62,7 @@ async def csnr(event):
     else:
         await event.answer("this is not for you", cache_time=0, show_alert=True)
 
-@ALF.on(events.NewMessage(incoming=True, pattern=(["/leavecousin", "/leavecousin@nothehe_bot"])))
+@ALF.on(events.NewMessage(incoming=True, pattern="/leavecousin"))
 async def leave(event):
     if_id = event.sender_id
     if event.reply_to_msg_id is not None:
