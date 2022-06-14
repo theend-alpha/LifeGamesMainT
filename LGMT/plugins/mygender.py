@@ -10,8 +10,8 @@ xD = "https://te.legra.ph/file/9a207e6e453a93ab2b165.jpg"
 
 gender_button = [
         [
-        Button.inline("Male 👦 ", data="male")
-        Button.inline("Female 👧 ", data="female")
+        Button.inline("Male 👦 ", data="male"),
+        Button.inline("Female 👧 ", data="female"),
         ],
         ]
 
