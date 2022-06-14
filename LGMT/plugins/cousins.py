@@ -41,9 +41,7 @@ async def csn(event):
     entity_f = await ALF.get_entity(f_id)
     i_mention = mentionuser(get_display_name(entity_i), i_id)
     f_mention = mentionuser(get_display_name(entity_f), f_id)
-    if not hehe.isnumeric():
-        return
-    elif are_cousins(i_id, f_id) is False:
+    if are_cousins(i_id, f_id) is False:
         if id_is_female(i_id) is True:
             gender = "her"
         else: 
