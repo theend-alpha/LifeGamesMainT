@@ -10,12 +10,14 @@ from telethon.utils import get_display_name
 f_id = None
 i_mention = None
 f_mention = None
+i_id = None
 
 @ALF.on(events.NewMessage(incoming="True", pattern="/cousin"))
 async def csn(event):
     global f_id
     global i_mention
     global f_mention
+    global i_id
     i_id = event.sender_id
     hehe = event.text[8:]
     if event.reply_to_msg_id is not None:
