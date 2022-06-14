@@ -63,6 +63,8 @@ async def flee(event):
     else:
         await event.reply("your gender is already none \n\n /mygender to set")
 
-@ALF.on(events.NewMessage(patter="/users")
+@ALF.on(events.NewMessage(patter="/users"))
 async def users(event):
+    no_of_males = get_males()
+    no_of_females = get_females()
     
