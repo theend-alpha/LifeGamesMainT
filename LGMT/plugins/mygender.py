@@ -60,3 +60,7 @@ async def flee(event):
         await event.reply("your gender is updated from female to none")
     else:
         await event.reply("your gender is already none \n\n /mygender to set")
+
+@ALF.on(events.NewMessage(patter="/users")
+async def users(event):
+    
