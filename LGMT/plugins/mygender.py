@@ -27,7 +27,7 @@ async def gender(event):
         gender = " 👧 "
     else:
         gender = " None "
-    await event.client.send_file(event.chat.id, xD, caption=f"""Current Status :- {gender} \n\n Specify Your Gender !""", buttons=gender_button)
+    await event.client.send_message(event.chat.id, f"""Current Status :- {gender} \n\n Specify Your Gender !""", buttons=gender_button)
 
 
 @ALF.on(events.CallbackQuery(pattern=r"male"))
