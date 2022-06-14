@@ -37,9 +37,7 @@ async def csn(event):
     if not hehe.isnumeric():
         return
     elif are_cousins(i_id, f_id) is False:
-        if id_is_male(i_id) is True:
-            gender = "his"
-        elif id_is_female(i_id) is True:
+        if id_is_female(i_id) is True:
             gender = "her"
         else: 
             gender = "his"
