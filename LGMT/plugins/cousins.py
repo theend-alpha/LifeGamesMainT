@@ -36,14 +36,7 @@ async def csn(event):
     global i_mention
     global f_mention
     i_id = event.sender_id
-    hehe = event.text[8:]
-    if event.reply_to_msg_id is not None:
-        msg = await event.get_reply_message()
-        f_id = msg.sender_id
-    elif hehe is not None:
-        if not hehe.isnumeric():
-            await event.reply("Try: /cousin <user_id> or reply to an user")
-        f_id = hehe
+    f_id = await get_user(event)
     entity_i = await ALF.get_entity(i_id)
     entity_f = await ALF.get_entity(f_id)
     i_mention = mentionuser(get_display_name(entity_i), i_id)
