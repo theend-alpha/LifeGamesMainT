@@ -35,7 +35,7 @@ async def csn(event):
         elif id_is_female(i_id) is True:
             gender = "her"
         else: 
-            gender = "his
+            gender = "his"
         await event.client.send_message(event.chat.id, COUSIN_REQ_TEXT.format(i_mention, f_mention, gender), buttons=cousin_markup)      
     else:
         await event.reply("Your both are already cousins 👦👧")
