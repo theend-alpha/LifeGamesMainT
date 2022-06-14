@@ -1,4 +1,5 @@
 from telethon import events
+from telethon.tl.functions.users import GetFullUserRequest
 from LGMT import ALF
 from NayanTara.inherits import *
 from Hexa.Markups import *
