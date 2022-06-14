@@ -12,7 +12,7 @@ gender_button = [
         [
         Button.inline("Male 👦 ", data="male")
         Button.inline("Female 👧 ", data="female")
-        ]
+        ],
         ]
 
 @ALF.on(events.NewMessage(incoming=True, pattern="/mygender"))
