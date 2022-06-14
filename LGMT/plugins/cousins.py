@@ -27,8 +27,6 @@ async def ofmn(_, m: YashuBaby):
 @ALF.on(events.NewMessage(incoming="True", pattern="/cousin"))
 async def csn(event):
     global f_id
-    global i_mention
-    global f_mention
     global i_id
     i_id = event.sender_id
     hehe = event.text[8:]
