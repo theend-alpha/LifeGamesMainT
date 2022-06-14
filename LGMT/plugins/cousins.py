@@ -30,8 +30,8 @@ async def csn(event):
         if not hehe.isnumeric():
             await event.reply("Try: /cousin <user_id> or reply to an user")
         f_id = hehe
-    entity_i = await event.client.get_entity(i_id)
-    entity_f = await event.client.get_entity(f_id)
+    entity_i = await ALF.get_entity(i_id)
+    entity_f = await ALF.get_entity(f_id)
     i_mention = mentionuser(get_display_name(entity_i, i_id)
     f_mention = mentionuser(get_display_name(entity_f, f_id)
     if not hehe.isnumeric():
