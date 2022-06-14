@@ -2,7 +2,9 @@ from telethon import events
 from LGMT import ALF
 from Nayantara.inherits import *
 from Hexa.Markups import *
+from Hexa.Texts import *
 from YashviDB.cousins_adb import *
+from YashviDB.genders_adb import id_is_male, id_is_female
 from telethon.utils import get_display_name
 
 @ALF.on(events.NewMessage(incoming="True", pattern=["/cousin", "/cousin@nothehe_bot"]))
@@ -20,4 +22,10 @@ async def csn(event):
     f_name = get_display_name(f_id)  
     i_mention = mentionuser(i_name, i_id)
     f_mention = mentionuser(f_name, f_id)
-    await event.client.send_message(event.chat.id, 
+    if id_is_male(i_id) is True:
+        gender = " his "
+    elif id_is_female(i_id) is True:
+        gender = " her "
+    else: 
+        gender = "their"
+    await event.client.send_message(event.chat.id, COUSIN_REQ_TEXT.format(i_mention, f_mention, gender), buttons=cousin_markup)
