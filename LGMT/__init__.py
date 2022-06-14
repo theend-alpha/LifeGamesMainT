@@ -1,5 +1,6 @@
 import os
 from telethon import TelegramClient, events
+import pyrogram as Alpha
 
 API_ID = 14151343
 API_HASH = "9330f17086496c4580bdc8f8b24ec364"
