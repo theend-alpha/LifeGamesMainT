@@ -3,7 +3,7 @@ from telethon import events, Button
 from telethon.tl.custom import button
 from YashviDB.genders_adb import add_male, add_female, rmv_male, rmv_female, id_is_male, id_is_female, get_males, get_females
 
-OMFOO = []
+i_id = None
 
 def mentionuser(name, userid):
     return f"[{name}](tg://user?id={userid})"
@@ -19,8 +19,8 @@ gender_button = [
 
 @ALF.on(events.NewMessage(incoming=True, pattern="/mygender"))
 async def gender(event):
-    global OMFOO
-    OMFOO.append(event.sender_id)
+    global i_id
+    i_id = event.sender_id
     if id_is_male(event.sender_id) is True:
         gender = " 👦 "
     elif id_is_female(event.sender_id) is True:
@@ -32,23 +32,21 @@ async def gender(event):
 
 @ALF.on(events.CallbackQuery(pattern=r"male"))
 async def maleback(event):
-    if event.query.user_id in OMFOO:
+    if event.query.user_id == i_id:
         rmv_male(event.sender_id)
         rmv_female(event.sender_id)
         add_male(event.sender_id)
         await event.edit("your gender is updated to male 👦 ")
-        OMFOO.remove(event.query.user_id)
     else:
         await event.answer("This is not for you", cache_time=0, alert=True)
 
 @ALF.on(events.CallbackQuery(pattern=r"female"))
 async def maleback(event):
-    if event.query.user_id in OMFOO:
+    if event.query.user_id == i_id:
         rmv_female(event.sender_id)
         rmv_male(event.sender_id)
         add_female(event.sender_id)
         await event.edit("your gender is updated to female 👧 ")
-        OMFOO.remove(event.query.user_id)
     else:
         await event.answer("This is not for you", cache_time=0, alert=True)
 
