@@ -1,6 +1,6 @@
 from telethon import events
 from LGMT import ALF
-from Nayantara.inherits import *
+from NayanTara.inherits import *
 from Hexa.Markups import *
 from Hexa.Texts import *
 from YashviDB.cousins_adb import *
