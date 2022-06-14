@@ -1,1 +1,1 @@
-COUSIN_REQ_TXT = """ {} wants {} as {} cousin... """
+COUSIN_REQ_TXT = """ {}{} wants {}{} as {} cousin... """
