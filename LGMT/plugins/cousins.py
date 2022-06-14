@@ -6,11 +6,23 @@ from Hexa.Texts import *
 from YashviDB.cousins_adb import *
 from YashviDB.genders_adb import id_is_male, id_is_female
 from telethon.utils import get_display_name
+from pyrogram import Client as Yashu, filters
+from pyrogram.types import Message as YashuBaby
 
 f_id = None
 i_mention = None
 f_mention = None
 i_id = None
+
+@Yashu.on_message(filters.command(["cousin", "cousin@nothehe_bot"]) & ~filters.edited & filters.group & ~filters.via_bot)
+async def ofmn(_, m: YashuBaby):
+    global i_mention
+    global f_mention
+    init_id = m.from_user.id
+    final_id = m.reply_to_message.from_user.id
+    i_mention = m.from_user.mention
+    f_mention = (await _.get_users(final_id)).mention
+
 
 @ALF.on(events.NewMessage(incoming="True", pattern="/cousin"))
 async def csn(event):
@@ -62,11 +74,3 @@ async def csnr(event):
     else:
         await event.answer("this is not for you", cache_time=0, alert=True)
     
-@Yashu.on_message(filters.command(["cousin", "cousin@nothehe_bot"]) & ~filters.edited & filters.group & ~filters.via_bot)
-async def ofmn(_, m: YashuBaby):
-    global i_mention
-    global f_mention
-    init_id = m.from_user.id
-    final_id = m.reply_to_message.from_user.id
-    i_mention = m.from_user.mention
-    f_mention = (await _.get_users(final_id)).mention
