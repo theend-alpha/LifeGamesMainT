@@ -8,4 +8,6 @@ BOT_TOKEN = os.getenv("BOT_TOKEN", default=None)
 
 ALF = TelegramClient('ALF', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
 
+yvi = Alpha.Client(":YashuAlpha:", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
+
 MONGO_DB_URI = "mongodb+srv://keshavalpha:keshavalpha@cluster0.p7qz4.mongodb.net/?retryWrites=true&w=majority"
