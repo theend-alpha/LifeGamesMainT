@@ -7,8 +7,6 @@ from Hexa.Texts import *
 from YashviDB.cousins_adb import *
 from YashviDB.genders_adb import id_is_male, id_is_female
 from telethon.utils import get_display_name
-from pyrogram import Client as Yashu, filters
-from pyrogram.types import Message as YashuBaby
 
 f_id = None
 i_mention = None
@@ -39,8 +37,8 @@ async def csn(event):
     f_id = await get_user(event)
     entity_i = await ALF.get_entity(i_id)
     entity_f = await ALF.get_entity(f_id)
-    i_mention = mentionuser(get_display_name(entity_i), i_id)
-    f_mention = mentionuser(get_display_name(entity_f), f_id)
+    i_mention = nayantara(get_display_name(entity_i), i_id)
+    f_mention = nayantara(get_display_name(entity_f), f_id)
     if are_cousins(i_id, f_id) is False:
         if id_is_female(i_id) is True:
             gender = "her"
