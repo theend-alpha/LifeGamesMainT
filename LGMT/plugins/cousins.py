@@ -55,14 +55,14 @@ async def csna(event):
         add_cousin(f_id, i_id)
         await event.edit(f"{f_mention} accepted {i_mention} as {gender} cousin...")
     else:
-        await event.answer("this is not for you", cache_time=0, show_alert=True)
+        await event.answer("this is not for you", cache_time=0, alert=True)
 
 @ALF.on(events.CallbackQuery(pattern=r"csnreject"))
 async def csnr(event):
     if event.query.user_id == f_id:
         await event.edit("rejected ! Sed xD")
     else:
-        await event.answer("this is not for you", cache_time=0, show_alert=True)
+        await event.answer("this is not for you", cache_time=0, alert=True)
 
 @ALF.on(events.NewMessage(incoming=True, pattern="/leavecousin"))
 async def leave(event):
