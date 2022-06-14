@@ -25,7 +25,7 @@ async def csn(event):
         f_id = msg.sender_id
     elif hehe is not None:
         if not hehe.isnumeric():
-            await event.reply("Try: /cousin <user_id> ")
+            await event.reply("Try: /cousin <user_id> or reply to an user")
         f_id = hehe
     i_name = get_display_name(i_id)
     f_name = get_display_name(f_id)  
