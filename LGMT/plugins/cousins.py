@@ -62,7 +62,7 @@ async def csnr(event):
     else:
         await event.answer("this is not for you", cache_time=0, show_alert=True)
 
-@ALF.on(events.NewMessage(incoming=True, pattern=(["/leavecousin", "/leavecousin@nothehe_bot"]))
+@ALF.on(events.NewMessage(incoming=True, pattern=(["/leavecousin", "/leavecousin@nothehe_bot"])))
 async def leave(event):
     if_id = event.sender_id
     if event.reply_to_msg_id is not None:
