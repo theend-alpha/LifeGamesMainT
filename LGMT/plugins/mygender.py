@@ -67,4 +67,4 @@ async def flee(event):
 async def users(event):
     no_of_males = get_males()
     no_of_females = get_females()
-    
+    await event.reply(f""" Bot Users : \n\n Males - {no_of_males}\n Females - {no_of_females}""")
