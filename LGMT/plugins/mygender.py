@@ -36,7 +36,7 @@ async def maleback(event):
     else:
         await event.answer("This is not for you", cache_time=0, alert=True)
 
-@ALF.on(events.NewMessage(pattern="/flee")
+@ALF.on(events.NewMessage(pattern="/flee"))
 async def flee(event):
     if id_is_male(event.sender_id) is True:
         rmv_male(event.sender_id)
