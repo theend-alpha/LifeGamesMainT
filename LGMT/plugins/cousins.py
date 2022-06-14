@@ -14,7 +14,7 @@ i_mention = None
 f_mention = None
 i_id = None
 
-@Yashu.on_message(filters.command(["cousin", "cousin@nothehe_bot"]) & ~filters.edited & filters.group & ~filters.via_bot)
+@Yashu.on_message(filters.command(["cousin", "cousin@nothehe_bot"]) & filters.group & ~filters.via_bot)
 async def ofmn(_, m: YashuBaby):
     global i_mention
     global f_mention
