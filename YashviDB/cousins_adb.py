@@ -13,23 +13,10 @@ class Cousins(BASE):
         self.i_id = i_id 
         self.f_id = f_id
 
-class Wait(BASE):
-    __tablename__ = "waiting"
-
-    i_id = Column(BigInteger, primary_key=True)
-    f_id = Column(BigInteger, primary_key=True)
-
-    def __init__(self, i_id, f_id):
-        self.i_id = i_id
-        self.f_id = f_id
 
 Cousins.__table__.create(checkfirst=True)
 
-Wait.__table__.create(checkfirst=True)
-
 COUSIN_LOCK = threading.RLock()
-
-WAITING_LOCK = threading.RLock()
 
 def add_cousin(i_id, f_id):
     with COUSIN_LOCK:
@@ -65,25 +52,3 @@ def cousins_list_for(i_id):
         )
     finally:
         SESSION.close()
-
-def add_to_waiting(i_id, f_id):
-    with WAITING_LOCK:
-        in_waiting = SESSION.query(Wait).get(i_id, f_id)
-        if not in_waiting:
-            adder = Wait(i_id, f_id)
-            SESSION.add(adder)
-            SESSION.commit()
-
-def rmv_from_waiting(i_id, f_id):
-    with WAITING_LOCK:
-        in_waiting = SESSION.query(Wait).get(i_id, f_id)
-        if in_waiting:
-            SESSION.delete(in_waiting)
-            SESSION.commit()  
-
-def check_waiting_list(i_id, f_id):
-    getter = SESSION.query(Wait).get(i_id, f_id)
-    if getter:
-        return True
-    else:
-        return False
