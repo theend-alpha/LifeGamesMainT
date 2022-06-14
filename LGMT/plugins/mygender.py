@@ -15,7 +15,7 @@ gender_button = [
         ]
         ]
 
-@ALF.on(events.NewMessage(incoming=True, pattern="/gender"))
+@ALF.on(events.NewMessage(incoming=True, pattern="/mygender"))
 async def gender(event):
     await event.client.send_file(event.chat.id, xD, caption="Choose your gender", buttons=gender_button)
 
