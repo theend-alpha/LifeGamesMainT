@@ -32,8 +32,8 @@ async def csn(event):
         f_id = hehe
     entity_i = await ALF.get_entity(i_id)
     entity_f = await ALF.get_entity(f_id)
-    i_mention = mentionuser(get_display_name(entity_i, i_id))
-    f_mention = mentionuser(get_display_name(entity_f, f_id))
+    i_mention = mentionuser(get_display_name(entity_i), i_id)
+    f_mention = mentionuser(get_display_name(entity_f), f_id)
     if not hehe.isnumeric():
         return
     elif are_cousins(i_id, f_id) is False:
