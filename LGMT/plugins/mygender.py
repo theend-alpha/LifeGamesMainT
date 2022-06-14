@@ -33,6 +33,7 @@ async def gender(event):
 @ALF.on(events.CallbackQuery(pattern=r"male"))
 async def maleback(event):
     if event.query.user_id in OMFOO:
+        rmv_male(event.sender_id)
         rmv_female(event.sender_id)
         add_male(event.sender_id)
         await event.edit("your gender is updated to male 👦 ")
@@ -43,6 +44,7 @@ async def maleback(event):
 @ALF.on(events.CallbackQuery(pattern=r"female"))
 async def maleback(event):
     if event.query.user_id in OMFOO:
+        rmv_female(event.sender_id)
         rmv_male(event.sender_id)
         add_female(event.sender_id)
         await event.edit("your gender is updated to female 👧 ")
