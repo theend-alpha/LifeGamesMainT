@@ -31,7 +31,9 @@ async def csn(event):
     f_name = get_display_name(f_id)  
     i_mention = mentionuser(i_name, i_id)
     f_mention = mentionuser(f_name, f_id)
-    if are_cousins(i_id, f_id) is False:
+    if not hehe.isnumeric():
+        return
+    elif are_cousins(i_id, f_id) is False:
         if id_is_male(i_id) is True:
             gender = "his"
         elif id_is_female(i_id) is True:
