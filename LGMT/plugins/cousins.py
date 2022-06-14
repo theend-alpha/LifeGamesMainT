@@ -15,20 +15,12 @@ i_mention = None
 f_mention = None
 i_id = None
 
-@Yashu.on_message(filters.command(["cousin", "cousin@nothehe_bot"]) & filters.group & ~filters.via_bot)
-async def ofmn(_, m: YashuBaby):
-    global i_mention
-    global f_mention
-    init_id = m.from_user.id
-    final_id = m.reply_to_message.from_user.id
-    i_mention = m.from_user.mention
-    f_mention = (await _.get_users(final_id)).mention
-
-
 @ALF.on(events.NewMessage(incoming="True", pattern="/cousin"))
 async def csn(event):
     global f_id
     global i_id
+    global i_mention
+    global f_mention
     i_id = event.sender_id
     hehe = event.text[8:]
     if event.reply_to_msg_id is not None:
@@ -38,6 +30,10 @@ async def csn(event):
         if not hehe.isnumeric():
             await event.reply("Try: /cousin <user_id> or reply to an user")
         f_id = hehe
+    entity_i = await event.client.get_entity(i_id)
+    entity_f = await event.client.get_entity(f_id)
+    i_mention = mentionuser(get_display_name(entity_i, i_id)
+    f_mention = mentionuser(get_display_name(entity_f, f_id)
     if not hehe.isnumeric():
         return
     elif are_cousins(i_id, f_id) is False:
