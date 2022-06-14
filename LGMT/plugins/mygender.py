@@ -3,6 +3,7 @@ from telethon import events, Button
 from telethon.tl.custom import button
 from YashviDB.genders_adb import add_male, add_female, rmv_male, rmv_female, id_is_male, id_is_female, get_males, get_females
 
+
 def mentionuser(name, userid):
     return f"[{name}](tg://user?id={userid})"
 
@@ -17,7 +18,13 @@ gender_button = [
 
 @ALF.on(events.NewMessage(incoming=True, pattern="/mygender"))
 async def gender(event):
-    await event.client.send_file(event.chat.id, xD, caption="Choose your gender", buttons=gender_button)
+    if id_is_male(event.sender_id) is True:
+        gender = " 👦 "
+    elif id_is_female(event.sender_id) is True:
+        gender = " 👧 "
+    else:
+        gender = " None "
+    await event.client.send_file(event.chat.id, xD, caption=f"""Current Status :- {gender} \n\n Specify Your Gender !""", buttons=gender_button)
 
 
 @ALF.on(events.CallbackQuery(pattern=r"male"))
