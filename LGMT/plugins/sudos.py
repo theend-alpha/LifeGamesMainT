@@ -3,6 +3,7 @@ from YashviDB.sudousers_adb import *
 from telethon import events
 from NayanTara.inherits import *
 from telethon.tl.functions.users import GetFullUserRequest
+from telethon.utils import get_display_name
 
 ALPHA_ID = [1985209910, 1927705508]
 
