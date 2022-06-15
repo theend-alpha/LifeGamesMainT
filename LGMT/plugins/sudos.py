@@ -21,7 +21,7 @@ async def get_user(event):
     target = replied_user.user.id
     return target
 
-@ALF.on(events.NewMessage(pattern="/addsudo"))
+@ALF.on(events.NewMessage(incoming=True, pattern="/addsudo"))
 async def addsudo(event):
     if event.sender_id in ALPHA_ID:
         hehe = event.text[9:]
@@ -38,4 +38,16 @@ async def addsudo(event):
     else:
         await event.reply("Only Alpha can use this")
         
-            
+@ALF.on(events.NewMessage(incoming=True, pattern="/delsudo"))       
+async def delsudo(event):
+    if event.sender_id in ALPHA_ID:
+        hehe = event.text[9:]
+        if hehe.isnumeric():
+            id = hehe
+        else:
+            id = await get_user(event)
+        id_mention = taramention(id)
+        if is_sudo(id) is True:
+            delsudo(id)
+            await event.reply(f"{id_mention} has been removed from sudo users")
+  
