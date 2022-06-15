@@ -4,7 +4,7 @@ from sqlalchemy.sql.sqltypes import BigInteger
 import threading
 
 class SUDO(BASE):
-    __tablename__ = sudo
+    __tablename__ = "sudousers"
 
     id = Column(BigInteger, primary_key=True)
 
