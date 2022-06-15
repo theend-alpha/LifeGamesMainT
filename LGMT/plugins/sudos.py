@@ -50,4 +50,5 @@ async def delsudo(event):
         if is_sudo(id) is True:
             delsudo(id)
             await event.reply(f"{id_mention} has been removed from sudo users")
-  
+        else:
+            await event.reply(f"{id_mention} is not a sudo user")
