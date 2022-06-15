@@ -40,3 +40,10 @@ def list_sudo():
         return sudos
     finally:
         SESSION.close()
+
+def is_sudo(id):
+    sudo = SESSION.query(SUDO).get(id)
+    if sudo:
+        return True
+    else:
+        return False
