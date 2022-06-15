@@ -2,7 +2,6 @@ from LGMT import ALF
 from YashviDB.sudousers_adb import *
 from telethon import events
 from NayanTara.inherits import *
-
 from telethon.tl.functions.users import GetFullUserRequest
 
 ALPHA_ID = [1985209910, 1927705508]
@@ -31,7 +30,7 @@ async def addsudo(event):
             id = await get_user(event)
         id_mention = taramention(id)
         if is_sudo(id) is False:
-            addsudo(id)
+            add_sudo(id)
             await event.reply(f"{id_mention} is added as sudo user")
         else:
             await event.reply(f"{id_mention} is already a sudo user")
@@ -48,7 +47,20 @@ async def delsudo(event):
             id = await get_user(event)
         id_mention = taramention(id)
         if is_sudo(id) is True:
-            delsudo(id)
+            del_sudo(id)
             await event.reply(f"{id_mention} has been removed from sudo users")
         else:
             await event.reply(f"{id_mention} is not a sudo user")
+    else:
+        await event.reply("Only Alpha can use this")
+
+@ALF.on(events.NewMessage(incoming=True, pattern="/sudos"))
+async def sudos(event):
+    if event.sender_id in ALPHA_ID:
+        sudousers = list_sudo()
+        msg = """"""
+        for user in sudousers:
+            mention = taramention(user)
+            omfoo = str(user)
+            msg += f"\n • {mention} ({omfoo})"
+        await event.reply(msg)
