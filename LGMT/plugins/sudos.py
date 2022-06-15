@@ -1,6 +1,7 @@
 from LGMT import ALF
 from YashviDB.sudousers_adb import *
 from telethon import events
+from NayanTara.inherits import *
 
 from telethon.tl.functions.users import GetFullUserRequest
 
@@ -28,5 +29,13 @@ async def addsudo(event):
             id = hehe
         else:
             id = await get_user(event)
-
+        id_mention = taramention(id)
+        if is_sudo(id) is False:
+            addsudo(id)
+            await event.reply(f"{id_mention} is added as sudo user")
+        else:
+            await event.reply(f"{id_mention} is already a sudo user")
+    else:
+        await event.reply("Only Alpha can use this")
+        
             
