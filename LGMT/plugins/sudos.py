@@ -2,6 +2,8 @@ from LGMT import ALF
 from YashviDB.sudousers_adb import *
 from telethon import events
 
+from telethon.tl.functions.users import GetFullUserRequest
+
 ALPHA_ID = [1985209910, 1927705508]
 
 async def get_user(event):
