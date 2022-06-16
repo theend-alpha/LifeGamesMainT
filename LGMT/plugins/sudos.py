@@ -24,11 +24,7 @@ async def get_user(event):
 @ALF.on(events.NewMessage(incoming=True, pattern="/addsudo"))
 async def addsudo(event):
     if event.sender_id in ALPHA_ID:
-        hehe = event.text[9:]
-        if hehe.isnumeric():
-            id = hehe
-        else:
-            id = await get_user(event)
+        id = await get_user(event)
         tara_entity = ALF.get_entity(id)
         namertara = goddess_tara(tara_entity)
         id_mention = nayantara(namertara, id)
@@ -43,11 +39,7 @@ async def addsudo(event):
 @ALF.on(events.NewMessage(incoming=True, pattern="/delsudo"))       
 async def delsudo(event):
     if event.sender_id in ALPHA_ID:
-        hehe = event.text[9:]
-        if hehe.isnumeric():
-            id = hehe
-        else:
-            id = await get_user(event)
+        id = await get_user(event)
         tara_entity = ALF.get_entity(id)
         namertara = goddess_tara(tara_entity)
         id_mention = nayantara(namertara, id)
