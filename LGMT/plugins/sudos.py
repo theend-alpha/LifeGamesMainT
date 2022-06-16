@@ -57,7 +57,7 @@ async def sudos(event):
         sudousers = list_sudo()
         msg = """"""
         for user in sudousers:
-            tara_entity = await ALF.get_entity(user)
+            tara_entity = await ALF.get_entity(user.id)
             namertara = goddess_tara(tara_entity)
             id_mention = nayantara(namertara, id)
             omfoo = str(user)
