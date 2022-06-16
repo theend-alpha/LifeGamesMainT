@@ -31,7 +31,7 @@ async def addsudo(event):
             id = await get_user(event)
         tara_entity = ALF.get_entity(id)
         namertara = goddess_tara(tara_entity)
-        id_mention = taramention(namertara, id)
+        id_mention = nayantara(namertara, id)
         if is_sudo(id) is False:
             add_sudo(id)
             await event.reply(f"{id_mention} is added as sudo user")
@@ -50,7 +50,7 @@ async def delsudo(event):
             id = await get_user(event)
         tara_entity = ALF.get_entity(id)
         namertara = goddess_tara(tara_entity)
-        id_mention = taramention(namertara, id)
+        id_mention = nayantara(namertara, id)
         if is_sudo(id) is True:
             del_sudo(id)
             await event.reply(f"{id_mention} has been removed from sudo users")
@@ -65,7 +65,9 @@ async def sudos(event):
         sudousers = list_sudo()
         msg = """"""
         for user in sudousers:
-            mention = taramention(user)
+            tara_entity = ALF.get_entity(user)
+            namertara = goddess_tara(tara_entity)
+            id_mention = nayantara(namertara, id)
             omfoo = str(user)
-            msg += f"\n • {mention} ({omfoo})"
+            msg += f"\n • {id_mention} ({omfoo})"
         await event.reply(msg)
