@@ -55,12 +55,12 @@ async def delsudo(event):
 async def sudos(event):
     if event.sender_id in ALPHA_ID:
         sudousers = list_sudo()
-        msg = """"""
+        msg = """Sudo Users: \n"""
         for user in sudousers:
             tara_entity = await ALF.get_entity(user.id)
             namertara = goddess_tara(tara_entity)
             id_mention = nayantara(namertara, id)
-            omfoo = str(user)
+            omfoo = str(user.id)
             msg += f"\n • {id_mention} ({omfoo})"
         try:
             await event.reply(msg)
