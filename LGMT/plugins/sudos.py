@@ -62,4 +62,7 @@ async def sudos(event):
             id_mention = nayantara(namertara, id)
             omfoo = str(user)
             msg += f"\n • {id_mention} ({omfoo})"
-        await event.reply(msg)
+        try:
+            await event.reply(msg)
+        except:
+            await event.reply("No sudo users")
