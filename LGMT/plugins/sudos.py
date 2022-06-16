@@ -25,7 +25,7 @@ async def get_user(event):
 async def addsudo(event):
     if event.sender_id in ALPHA_ID:
         id = await get_user(event)
-        tara_entity = ALF.get_entity(id)
+        tara_entity = await ALF.get_entity(id)
         namertara = goddess_tara(tara_entity)
         id_mention = nayantara(namertara, id)
         if is_sudo(id) is False:
@@ -40,7 +40,7 @@ async def addsudo(event):
 async def delsudo(event):
     if event.sender_id in ALPHA_ID:
         id = await get_user(event)
-        tara_entity = ALF.get_entity(id)
+        tara_entity = await ALF.get_entity(id)
         namertara = goddess_tara(tara_entity)
         id_mention = nayantara(namertara, id)
         if is_sudo(id) is True:
