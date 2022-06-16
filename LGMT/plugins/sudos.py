@@ -3,7 +3,7 @@ from YashviDB.sudousers_adb import *
 from telethon import events
 from NayanTara.inherits import *
 from telethon.tl.functions.users import GetFullUserRequest
-from telethon.utils import get_display_name
+from telethon.utils import get_display_name as goddess_tara
 
 ALPHA_ID = [1985209910, 1927705508]
 
@@ -29,7 +29,9 @@ async def addsudo(event):
             id = hehe
         else:
             id = await get_user(event)
-        id_mention = taramention(id)
+        tara_entity = ALF.get_entity(id)
+        namertara = goddess_tara(tara_entity)
+        id_mention = taramention(namertara, id)
         if is_sudo(id) is False:
             add_sudo(id)
             await event.reply(f"{id_mention} is added as sudo user")
@@ -46,7 +48,9 @@ async def delsudo(event):
             id = hehe
         else:
             id = await get_user(event)
-        id_mention = taramention(id)
+        tara_entity = ALF.get_entity(id)
+        namertara = goddess_tara(tara_entity)
+        id_mention = taramention(namertara, id)
         if is_sudo(id) is True:
             del_sudo(id)
             await event.reply(f"{id_mention} has been removed from sudo users")
