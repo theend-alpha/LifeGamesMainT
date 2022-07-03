@@ -30,3 +30,10 @@ async def del_male(a: int):
     else:
         return 
     await genderdb.update_one({"males": males}, upsert=True)
+
+async def is_male(a: int):
+    males = await get_males()
+    if a in males:
+        return True
+    else:
+        return False
