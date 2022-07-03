@@ -34,4 +34,4 @@ async def are_cousins(a: int, b: int):
     if b in _cousins["cousins"]:
         return True
     else:
-        False
+        return False
