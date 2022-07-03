@@ -15,3 +15,10 @@ async def get_males():
         return _males
     else:
         return {}
+
+async def get_females():
+    _females = genderdb.find_one({"females": females})
+    if _females:
+        return _females
+    else:
+        return {}
