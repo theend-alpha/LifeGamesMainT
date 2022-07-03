@@ -22,3 +22,11 @@ async def get_females():
         return _females
     else:
         return {}
+
+async def del_male(a: int):
+    males = await get_males()
+    if a in males:
+        males.remove(a)
+    else:
+        return 
+    await genderdb.update_one({"males": males})
