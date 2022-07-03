@@ -6,3 +6,10 @@ cousin_markup = [
         Button.inline(" ❌ ", data="csnreject"),
         ],
         ]
+
+gender_markup = [
+        [
+        Button.inline(" Boy 👦 ", data="male"),
+        Button.inline(" Girl 👧 ", data="female"),
+        ],
+        ]
