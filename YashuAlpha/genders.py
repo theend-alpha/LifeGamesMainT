@@ -29,4 +29,4 @@ async def del_male(a: int):
         males.remove(a)
     else:
         return 
-    await genderdb.update_one({"males": males})
+    await genderdb.update_one({"males": males}, upsert=True)
