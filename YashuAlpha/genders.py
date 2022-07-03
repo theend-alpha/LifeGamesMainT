@@ -51,3 +51,11 @@ async def add_female(a: int):
         return
     females.append(a)
     await genderdb.update_one({"females": females}, upsert=True)
+
+async def del_female(a: int):
+    females = await get_females()
+    if a in females:
+        females.remove(a)
+    else:
+        return 
+    await genderdb.update_one({"females": females}, upsert=True)
