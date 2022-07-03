@@ -7,7 +7,7 @@ import Config
 
 
 mongo = MongoClient(config.MONGO_DB_URL)
-db = mongo.AFK
+db = mongo.LGMT
 
 
 
