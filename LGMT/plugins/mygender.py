@@ -11,3 +11,8 @@ async def smexy(event):
     a = event.sender_id
     alpha_entity = await ALF.get_entity(a)
     a_fn = rupali(alpha_entitiy)
+    is_male = await is_male(a)
+    is_female = await is_female(a)
+    if is_male:
+        await event.reply(
+    
