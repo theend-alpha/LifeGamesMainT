@@ -7,7 +7,7 @@ async def add_male(a: int):
     if a in males:
         return
     males.append(a)
-    await genderdb.insert_one({"males": males})
+    await genderdb.update_one({"males": males}, upsert=True)
 
 async def get_males():
     _males = genderdb.find_one({"males": males})
@@ -45,3 +45,9 @@ async def is_female(a: int):
     else:
         return False
 
+async def add_female(a: int):
+    females = await get_females()
+    if a in females:
+        return
+    females.append(a)
+    await genderdb.update_one({"females": females}, upsert=True)
