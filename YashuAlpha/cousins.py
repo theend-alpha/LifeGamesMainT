@@ -31,7 +31,7 @@ async def del_cousin(a:int, b: int):
 
 async def are_cousins(a: int, b: int):
     _cousins = await cousinsdb.find_one({"a": a})
-    if b in _cousins:
+    if b in _cousins["cousins"]:
         return True
     else:
         False
