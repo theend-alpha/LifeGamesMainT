@@ -8,6 +8,6 @@ MONGO_DB_URL = os.environ.get('MONGO_DB_URL')
 
 mongo = MongoClient(MONGO_DB_URL)
 db = mongo.LGMT
-
+YashviLovesAlpha = db
 
 
