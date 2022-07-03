@@ -9,4 +9,9 @@ async def add_male(a: int):
     males.append(a)
     await genderdb.insert_one({"males": males})
 
-async def 
+async def get_males():
+    _males = genderdb.find_one({"males": males})
+    if _males:
+        return _males
+    else:
+        return {}
