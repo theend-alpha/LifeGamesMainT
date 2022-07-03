@@ -37,3 +37,11 @@ async def is_male(a: int):
         return True
     else:
         return False
+
+async def is_female(a: int):
+    females = await get_females()
+    if a in females:
+        return True
+    else:
+        return False
+
