@@ -29,7 +29,7 @@ async def acsn(event):
         if event.text.spilt(None, 1)[1]:
             if event.text.split(None, 1)[1][0] == "@":
                 try:
-                    b = await ALF.get_entity(event.text.split(None, 1)[1])
+                    b = await ALF.get_entity(event.text.split(None, 1)[1]).id
                 except:
                     pass
             else:
@@ -38,3 +38,16 @@ async def acsn(event):
             b = await get_user(event)
     else:
         return
+    cousins = await are_cousins(a, b)
+    if cousins:
+        return
+    female = await is_female(a)
+    a_fn = await ALF.get_entity(a).get_display_name
+    b_fn = await ALF.get_entity(b).get_display_name
+    a_m = nayantara(a_fn, a)
+    b_m = nayantara(b_fn, b)
+    ladki = " 👧 "
+    ladka = " 👦 "
+    await event.send_message(event.chat_id, f"{ladki if female else ladka} {a_m} **wants** {b_m} as {"her" if female else "his"} cousin", buttons=cousin_markup)
+
+        
