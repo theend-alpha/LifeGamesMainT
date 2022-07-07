@@ -22,8 +22,13 @@ async def get_user(event):
     target = replied_user.user.id
     return target
 
+a = None
+b = None
+
 @ALF.on(events.NewMessage(incoming=True, patter="/cousin"))
 async def acsn(event):
+    global a
+    global b 
     a = event.sender_id
     if event.sender_id:
         if event.text.spilt(None, 1)[1]:
@@ -48,6 +53,14 @@ async def acsn(event):
     b_m = nayantara(b_fn, b)
     ladki = " 👧 "
     ladka = " 👦 "
-    await event.send_message(event.chat_id, f"{ladki if female else ladka} {a_m} **wants** {b_m} as {"her" if female else "his"} cousin", buttons=cousin_markup)
+    await event.send_message(event.chat_id, f"{ladki if female else ladka} {a_m} **wants** {b_m} **as {"her" if female else "his"} cousin**", buttons=cousin_markup)
 
+ALF.on(events.CallbackQuery(pattern=r"csnaccept"))
+async def csna(event):
+    if b != event.query.user_id:
+        return await event.answer()
+    await add_cousin(a, b)
+    await add_cousin(b, a)
+    await event.edit(f"{b_m} **accepted** {a_m} **as their cousin**")
+         
         
