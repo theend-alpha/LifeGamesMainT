@@ -55,7 +55,7 @@ async def acsn(event):
     ladka = " 👦 "
     await event.send_message(event.chat_id, f"{ladki if female else ladka} {a_m} **wants** {b_m} **as {"her" if female else "his"} cousin**", buttons=cousin_markup)
 
-ALF.on(events.CallbackQuery(pattern=r"csnaccept"))
+@ALF.on(events.CallbackQuery(pattern=r"csnaccept"))
 async def csna(event):
     if b != event.query.user_id:
         return await event.answer()
